@@ -1,0 +1,14 @@
+# Taken from http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
+# These files are text and should be normalized (convert crlf =&gt; lf)
+*.java  text
+*.xml   text
+*.jsp   text
+*.html  text
+*.js    text
+*.css   text
+*.md    text
+
+# Images should be treated as binary
+# (binary is a macro for -text -diff)
+*.png   binary
+*.jepg  binary
