@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        orgSpringframeworkVersion = '3.1.1.RELEASE'
+        orgSpringframeworkVersion = '4.1.2.RELEASE'
         javaVersion = 1.8
         slf4jVersion = '1.6.6'
         gradleWrapperVersion = '1.12'
