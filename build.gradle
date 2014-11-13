@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        orgSpringframeworkVersion = '3.1.1.RELEASE'
+        orgSpringframeworkVersion = '4.1.2.RELEASE'
         javaVersion = 1.8
         slf4jVersion = '1.6.6'
         gradleWrapperVersion = '1.12'
@@ -8,6 +8,15 @@ buildscript {
         tomcatVersion = '7.0.55'
         servletApiVersion = '3.1.0'
         junitVersion = '4.11'
+        jspApiVersion = '2.1'
+        log4jVersion = '1.2.15'
+        javaxInjectVersion = '1'
+        aspectJrtVersion = '1.6.10'
+        jstlVersion = '1.2'
+        jettyServerVersion = '9.2.2.v20140723'
+        jCentralUrl = "http://jcenter.bintray.com"
+        mavenCentralUrl = "http://download.java.net/maven/2"
+        springMavenUrl = "http://repo.spring.io/plugins-release"
     }
     
     repositories {
@@ -32,12 +41,12 @@ apply plugin: 'tomcat'
 
 
 group = 'com.virtusa'
-version = '1.0.0-BUILD-SNAPSHOT'
+version = '0.2.0-SNAPSHOT'
 
 description = "Demo of Spring"
 
 repositories {
-    maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url jCentralUrl }
     maven { url "http://repo.spring.io/plugins-release" }
     mavenLocal()
     mavenCentral()
@@ -52,14 +61,14 @@ dependencies {
         exclude(module: 'commons-logging')
     }
     compile group: 'org.springframework', name: 'spring-webmvc', version:orgSpringframeworkVersion
-    compile group: 'org.aspectj', name: 'aspectjrt', version:'1.6.10'
+    compile group: 'org.aspectj', name: 'aspectjrt', version:aspectJrtVersion
     compile group: 'org.slf4j', name: 'slf4j-api', version:slf4jVersion
-    compile group: 'javax.inject', name: 'javax.inject', version:'1'
-    compile group: 'javax.servlet', name: 'jstl', version:'1.2'
-    compile group: 'org.eclipse.jetty', name: 'jetty-server', version:'9.2.2.v20140723'
+    compile group: 'javax.inject', name: 'javax.inject', version:javaxInjectVersion
+    compile group: 'javax.servlet', name: 'jstl', version:jstlVersion
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version:jettyServerVersion
     runtime group: 'org.slf4j', name: 'jcl-over-slf4j', version:slf4jVersion
     runtime group: 'org.slf4j', name: 'slf4j-log4j12', version:slf4jVersion
-    runtime(group: 'log4j', name: 'log4j', version:'1.2.15') {
+    runtime(group: 'log4j', name: 'log4j', version:log4jVersion) {
         exclude(module: 'mail')
         exclude(module: 'jms')
         exclude(module: 'jmxtools')
@@ -67,7 +76,7 @@ dependencies {
     }
     testCompile group: 'junit', name: 'junit', version:junitVersion
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version:servletApiVersion
-    providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.1'
+    providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:jspApiVersion
     //tomcat
     tomcat group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: tomcatVersion
     tomcat group: 'org.apache.tomcat.embed', name: 'tomcat-embed-logging-juli', version: tomcatVersion
