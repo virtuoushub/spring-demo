@@ -3,7 +3,9 @@ buildscript {
         orgSpringframeworkVersion = '4.1.2.RELEASE'
         javaVersion = 1.8
         slf4jVersion = '1.6.6'
-        gradleWrapperVersion = '1.12'
+        gradleWrapperVersion = '2.2'
+        tomcatPluginVersion = '2.0'
+        tomcatVersion = '8.0.15'
         servletApiVersion = '3.1.0'
         junitVersion = '4.11'
         jspApiVersion = '2.1'
@@ -22,18 +24,20 @@ apply plugin: 'java'
 apply plugin: 'jetty'
 
 group = 'com.virtusa'
-version = '0.1.0'
+version = '0.2.0'
 
 description = "Demo of Spring"
 
-repositories {
-    maven { url jCentralUrl }
-    mavenLocal()
-    mavenCentral()
-}
-
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
+
+
+repositories {
+    jcenter()
+    mavenLocal()
+    maven { url springMavenUrl }
+    mavenCentral()
+}
 
 dependencies {
     compile(group: 'org.springframework', name: 'spring-context', version:orgSpringframeworkVersion) {
