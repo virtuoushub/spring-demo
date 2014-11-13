@@ -4,7 +4,7 @@ buildscript {
         javaVersion = 1.8
         slf4jVersion = '1.6.6'
         gradleWrapperVersion = '2.2'
-        tomcatPluginVersion = '1.2.4'
+        tomcatPluginVersion = '2.0'
         tomcatVersion = '8.0.15'
         servletApiVersion = '3.1.0'
         junitVersion = '4.11'
@@ -20,7 +20,7 @@ buildscript {
     }
 
     repositories {
-        maven { url jCentralUrl }
+        jcenter()
         mavenLocal()
         maven { url springMavenUrl }
         mavenCentral()
@@ -28,14 +28,13 @@ buildscript {
     
     dependencies {
         //Tomcat
-        classpath group: 'org.gradle.api.plugins', name: 'gradle-tomcat-plugin', version: tomcatPluginVersion
+        classpath "com.bmuschko:gradle-tomcat-plugin:${tomcatPluginVersion}"
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'jetty'
-apply plugin: 'tomcat'
-
+apply plugin: 'com.bmuschko.tomcat-base'
 
 group = 'com.virtusa'
 version = '0.2.0-SNAPSHOT'
@@ -79,4 +78,4 @@ task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
 }
 
-tomcatRunWar.contextPath = 'colapietro'
+//tomcatRunWar.contextPath = 'colapietro'
