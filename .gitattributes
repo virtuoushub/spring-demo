@@ -13,7 +13,10 @@ gradlew         text
 .gitattributes  text
 .gitignore      text
 
-# Declare files that will always have CRLF line endings on checkout.
+# Declare files that will always have LF(*nix) line endings on checkout.
+*.sh            test eol=lf
+
+# Declare files that will always have CRLF(Windows) line endings on checkout.
 *.bat           text eol=crlf
 
 # Images should be treated as binary
