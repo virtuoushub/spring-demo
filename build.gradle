@@ -27,7 +27,7 @@ version = '0.1.0-BUILD-SNAPSHOT'
 description = "Demo of Spring"
 
 repositories {
-    maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url jCentralUrl }
     mavenLocal()
     mavenCentral()
 }
