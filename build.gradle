@@ -5,7 +5,7 @@ buildscript {
         slf4jVersion = '1.6.6'
         gradleWrapperVersion = '1.12'
         tomcatPluginVersion = '1.2.4'
-        tomcatVersion = '7.0.55'
+        tomcatVersion = '8.0.15'
         servletApiVersion = '3.1.0'
         junitVersion = '4.11'
         jspApiVersion = '2.1'
