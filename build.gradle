@@ -18,16 +18,13 @@ buildscript {
         mavenCentralUrl = "http://download.java.net/maven/2"
         springMavenUrl = "http://repo.spring.io/plugins-release"
     }
-    
+
     repositories {
+        maven { url jCentralUrl }
+        mavenLocal()
+        maven { url springMavenUrl }
         mavenCentral()
-        maven {
-            url "http://download.java.net/maven/2"
-        }
-        maven {
-            url 'http://repo.spring.io/plugins-release'
-        }
-    }    
+    }
     
     dependencies {
         //Tomcat
@@ -44,13 +41,6 @@ group = 'com.virtusa'
 version = '0.2.0-SNAPSHOT'
 
 description = "Demo of Spring"
-
-repositories {
-    maven { url jCentralUrl }
-    maven { url "http://repo.spring.io/plugins-release" }
-    mavenLocal()
-    mavenCentral()
-}
 
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
