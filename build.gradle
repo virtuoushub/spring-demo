@@ -4,32 +4,13 @@ buildscript {
         javaVersion = 1.8
         slf4jVersion = '1.6.6'
         gradleWrapperVersion = '1.12'
-        tomcatPluginVersion = '1.2.4'
-        tomcatVersion = '7.0.55'
         servletApiVersion = '3.1.0'
         junitVersion = '4.11'
-    }
-    
-    repositories {
-        mavenCentral()
-        maven {
-            url "http://download.java.net/maven/2"
-        }
-        maven {
-            url 'http://repo.spring.io/plugins-release'
-        }
-    }    
-    
-    dependencies {
-        //Tomcat
-        classpath group: 'org.gradle.api.plugins', name: 'gradle-tomcat-plugin', version: tomcatPluginVersion
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'jetty'
-apply plugin: 'tomcat'
-
 
 group = 'com.virtusa'
 version = '1.0.0-BUILD-SNAPSHOT'
@@ -38,7 +19,6 @@ description = "Demo of Spring"
 
 repositories {
     maven { url "http://repo.maven.apache.org/maven2" }
-    maven { url "http://repo.spring.io/plugins-release" }
     mavenLocal()
     mavenCentral()
 }
@@ -68,16 +48,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version:junitVersion
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version:servletApiVersion
     providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.1'
-    //tomcat
-    tomcat group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: tomcatVersion
-    tomcat group: 'org.apache.tomcat.embed', name: 'tomcat-embed-logging-juli', version: tomcatVersion
-    tomcat(group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: tomcatVersion) {
-      exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
-    }
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
 }
-
-tomcatRunWar.contextPath = 'colapietro'
