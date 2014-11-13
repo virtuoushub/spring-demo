@@ -22,7 +22,7 @@ apply plugin: 'java'
 apply plugin: 'jetty'
 
 group = 'com.virtusa'
-version = '0.1.0-BUILD-SNAPSHOT'
+version = '0.1.0'
 
 description = "Demo of Spring"
 
